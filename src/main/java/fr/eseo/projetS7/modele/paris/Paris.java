@@ -1,17 +1,27 @@
 package fr.eseo.projetS7.modele.paris;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
 import fr.eseo.projetS7.modele.evenements.Matchs;
 import fr.eseo.projetS7.modele.identite.Identite;
 
+/**
+ * Création des paris 
+ * 
+ * @author godefroi
+ *
+ */
+
 public class Paris {
 	
 	Matchs match;
 	int mise;
 	Identite identite;
+	Map<Identite,Integer> classement;
+	List<ListeParis[]> listeParis;
 	
 	
 	Logger LOGGER = Logger.getLogger("Paris.java");
@@ -61,8 +71,15 @@ public class Paris {
 		this.identite=identite;
 	}
 	
+	public void ajouterParis(Identite identite, Matchs match, int mise) {
+		ListeParis contenuTableau = new ListeParis(identite, mise, match);
+		ListeParis[] tableauParis = {contenuTableau};
+		listeParis.add(tableauParis);
+	}
+	
 	public Map<Identite,Integer> ajouterPointClassement(Identite identite,int mise) {
-		Map<Identite,Integer> classement = new HashMap<Identite,Integer>();
+		classement = new HashMap<Identite,Integer>();
+		
 		
 		return classement;
 	}

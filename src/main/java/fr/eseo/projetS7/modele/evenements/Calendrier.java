@@ -70,6 +70,7 @@ public class Calendrier {
 			LOGGER.info("Il manque des information sur ce match. Impossible de l'ajouter au calendrier");
 		} else {
 			getCalendrierMatchs().add(match);
+			LOGGER.info("It works I hope");
 		}
 	}
 	
